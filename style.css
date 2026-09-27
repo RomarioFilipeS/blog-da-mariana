@@ -1068,7 +1068,7 @@ button:disabled {
   width: 300px;
   height: 360px;
 
-  background: url("assets/arara_vetorizada.svg") center bottom / cover no-repeat;
+  background: url("assets/arara_vetorizada.png") center bottom / cover no-repeat;
   content: "";
 
   border-radius: 0;
@@ -1143,7 +1143,7 @@ button:disabled {
   width: 300px;
   height: 360px;
 
-  background: url("assets/arara_vetorizada.svg") center bottom / cover no-repeat;
+  background: url("assets/arara_vetorizada.png") center bottom / cover no-repeat;
   content: "";
 
   border-radius: 0;
