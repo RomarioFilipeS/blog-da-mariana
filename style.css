@@ -1063,15 +1063,14 @@ button:disabled {
 .destaque::after {
   position: absolute;
   right: 20px;
-  bottom: -15px;
+  bottom: 15px;
 
-  width: 300px;
+  width: 280px;
   height: 360px;
 
-  background: url("assets/arara_vetorizada.png") center bottom / cover no-repeat;
-  content: "";
+  background: url("assets/arara_vetorizada.png") center bottom / contain no-repeat;
 
-  border-radius: 0;
+  content: "";
   filter: drop-shadow(0 18px 24px rgba(8, 35, 27, .18));
   pointer-events: none;
 }
@@ -1138,15 +1137,14 @@ button:disabled {
 .destaque::after {
   position: absolute;
   right: 20px;
-  bottom: -15px;
+  bottom: 15px;
 
-  width: 300px;
+  width: 280px;
   height: 360px;
 
-  background: url("assets/arara_vetorizada.png") center bottom / cover no-repeat;
-  content: "";
+  background: url("assets/arara_vetorizada.png") center bottom / contain no-repeat;
 
-  border-radius: 0;
+  content: "";
   filter: drop-shadow(0 18px 24px rgba(8, 35, 27, .18));
   pointer-events: none;
 }
