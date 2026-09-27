@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel da autora | Blog da Mariana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <a class="marca" href="index.html">🐾 Blog da Mariana</a>
+      <nav aria-label="Menu do painel"><a href="index.html">Ver blog</a></nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container pagina-admin">
+    <h1>Painel da autora</h1>
+    <p>Escreva um artigo, salve como rascunho ou publique para aparecer no blog.</p>
+    <p id="status-geral" class="mensagem" role="status"></p>
+
+    <section id="secao-login" class="painel" aria-labelledby="titulo-login">
+      <h2 id="titulo-login">Entrar</h2>
+      <form id="form-login">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" autocomplete="current-password" required>
+        <button class="botao" type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <div id="area-editor" hidden>
+      <div class="barra-editor">
+        <p>Conectada como <strong id="email-editor"></strong></p>
+        <button id="sair" class="botao-secundario" type="button">Sair</button>
+      </div>
+
+      <section class="painel" aria-labelledby="titulo-sobre-painel">
+        <h2 id="titulo-sobre-painel">Editar “Sobre mim”</h2>
+        <p>Separe os parágrafos com uma linha em branco.</p>
+        <form id="form-sobre">
+          <label for="sobre-conteudo">Texto de apresentação</label>
+          <textarea id="sobre-conteudo" rows="9" minlength="20" required></textarea>
+          <button class="botao" type="submit">Salvar apresentação</button>
+          <p id="status-sobre" class="mensagem" role="status"></p>
+        </form>
+      </section>
+
+      <section class="painel" aria-labelledby="titulo-posts">
+        <div class="titulo-com-acao">
+          <h2 id="titulo-posts">Meus artigos</h2>
+          <button id="novo-artigo" class="botao-secundario" type="button">Novo artigo</button>
+        </div>
+        <p id="status-lista" class="mensagem" role="status"></p>
+        <div id="lista-admin" class="lista-admin"></div>
+      </section>
+
+      <section class="painel" aria-labelledby="titulo-form-artigo">
+        <h2 id="titulo-form-artigo">Novo artigo</h2>
+        <form id="form-artigo">
+          <label for="post-titulo">Título</label>
+          <input id="post-titulo" maxlength="150" minlength="3" required>
+
+          <label for="post-slug">Endereço do artigo</label>
+          <input id="post-slug" pattern="[a-z0-9]+(-[a-z0-9]+)*" title="Use letras minúsculas, números e hífens." required>
+          <p class="ajuda">Exemplo: minha-rotina-na-unb. Depois de criar, o endereço permanece igual.</p>
+
+          <label for="post-resumo">Resumo para a página inicial</label>
+          <textarea id="post-resumo" rows="3" minlength="10" maxlength="500" required></textarea>
+
+          <label for="post-conteudo">Texto completo</label>
+          <textarea id="post-conteudo" rows="12" minlength="30" required></textarea>
+              <label for="post-imagens">Imagens do artigo</label>
+          <input id="post-imagens" type="file"
+              accept="image/jpeg,image/png,image/webp" multiple>
+          <p class="ajuda">JPG, PNG ou WebP, até 5 MB por imagem.</p>
+          <button id="inserir-imagens" class="botao-secundario" type="button">
+          Enviar e inserir no texto
+          </button>
+          <p id="status-imagens" class="mensagem" role="status"></p>
+          <p class="ajuda">Separe os parágrafos com uma linha em branco. O editor recebe texto simples.</p>
+
+          <label for="post-status">Situação</label>
+          <select id="post-status">
+            <option value="draft">Rascunho</option>
+            <option value="published">Publicado</option>
+          </select>
+
+          <div class="acoes">
+            <button id="salvar-artigo" class="botao" type="submit">Salvar artigo</button>
+            <button id="cancelar-edicao" class="botao-secundario" type="button" hidden>Cancelar edição</button>
+          </div>
+          <p id="status-form" class="mensagem" role="status"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/comum.js"></script>
+  <script defer src="js/admin.js"></script>
+</body>
+</html>

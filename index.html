@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog da Mariana sobre a vida na Medicina Veterinária na UnB e seu amor pelos animais.">
+  <title>Blog da Mariana | Medicina Veterinária</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <a class="marca" href="index.html" aria-label="Blog da Mariana, página inicial">🐾 Blog da Mariana</a>
+      <nav aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#artigos">Artigos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container">
+    <section id="inicio" class="destaque" aria-labelledby="titulo-principal">
+      <p class="etiqueta">Medicina Veterinária na UnB</p>
+      <h1 id="titulo-principal">Entre patas, aulas e sonhos.</h1>
+      <p>Um espaço para compartilhar minha caminhada na faculdade e meu carinho pelos animais.</p>
+      <a class="botao" href="#artigos">Conheça os artigos</a>
+    </section>
+
+    <section id="sobre" class="secao sobre" aria-labelledby="titulo-sobre">
+      <p class="etiqueta">Prazer em conhecer você</p>
+      <h2 id="titulo-sobre">Sobre mim</h2>
+      <div id="sobre-texto">
+        <p>Oi! Sou a Mariana: morena, baixinha, cacheada e apaixonada por cachorros. Fazer Medicina Veterinária sempre foi um sonho meu, e passar na Universidade de Brasília (UnB) foi uma conquista muito especial.</p>
+        <p>Terminei o ensino médio em 2024 e comecei a faculdade em 2025. Hoje estou no terceiro semestre, caminhando para o quarto. Entre aulas, estudos e semanas de provas, sigo aprendendo sobre a profissão que escolhi.</p>
+        <p>Minha fé também faz parte de quem eu sou: vou à igreja toda semana. Criei este espaço para compartilhar minha rotina, os desafios da faculdade e meu amor pelos animais.</p>
+      </div>
+    </section>
+
+    <section id="artigos" class="secao" aria-labelledby="titulo-artigos">
+      <p class="etiqueta">Publicações</p>
+      <h2 id="titulo-artigos">Artigos recentes</h2>
+
+      <p id="status-artigos" role="status">Carregando artigos...</p>
+      <div id="lista-artigos" class="lista-artigos"></div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">Feito com carinho para compartilhar essa jornada. 🐾 <a href="admin.html">Painel da autora</a></div>
+  </footer>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/config.js"></script>
+  <script defer src="js/comum.js"></script>
+  <script defer src="js/inicio.js"></script>
+</body>
+</html>
