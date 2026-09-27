@@ -49,13 +49,14 @@ alter table public.site_pages enable row level security;
 -- Primeiro retira os privilégios padrão e depois concede somente o necessário.
 revoke all on table public.posts, public.site_pages from anon, authenticated;
 grant select on table public.posts, public.site_pages to anon;
-grant select, insert, update on table public.posts to authenticated;
+grant select, insert, update, delete on table public.posts to authenticated;
 grant select, update on table public.site_pages to authenticated;
 
 drop policy if exists "Visitantes leem artigos publicados" on public.posts;
 drop policy if exists "Autora le todos os artigos" on public.posts;
 drop policy if exists "Autora cria artigos" on public.posts;
 drop policy if exists "Autora altera artigos" on public.posts;
+drop policy if exists "Autora exclui artigos" on public.posts;
 drop policy if exists "Visitantes leem apresentacao" on public.site_pages;
 drop policy if exists "Autora altera apresentacao" on public.site_pages;
 
@@ -75,6 +76,10 @@ create policy "Autora altera artigos"
 on public.posts for update to authenticated
 using (public.is_blog_editor())
 with check (public.is_blog_editor());
+
+create policy "Autora exclui artigos"
+on public.posts for delete to authenticated
+using (public.is_blog_editor());
 
 create policy "Visitantes leem apresentacao"
 on public.site_pages for select to anon, authenticated
@@ -111,3 +116,28 @@ Esta é só a primeira publicação. Ainda tenho muita coisa para aprender e his
   now()
 )
 on conflict (slug) do nothing;
+
+-- Imagens públicas dos artigos; somente a autora pode enviar ou excluir.
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('blog-images', 'blog-images', true, 5242880,
+        array['image/jpeg', 'image/png', 'image/webp'])
+on conflict (id) do update set
+  public = excluded.public,
+  file_size_limit = excluded.file_size_limit,
+  allowed_mime_types = excluded.allowed_mime_types;
+
+drop policy if exists "Autora consulta imagens" on storage.objects;
+drop policy if exists "Autora envia imagens" on storage.objects;
+drop policy if exists "Autora exclui imagens" on storage.objects;
+
+create policy "Autora consulta imagens"
+on storage.objects for select to authenticated
+using (bucket_id = 'blog-images' and public.is_blog_editor());
+
+create policy "Autora envia imagens"
+on storage.objects for insert to authenticated
+with check (bucket_id = 'blog-images' and public.is_blog_editor());
+
+create policy "Autora exclui imagens"
+on storage.objects for delete to authenticated
+using (bucket_id = 'blog-images' and public.is_blog_editor());

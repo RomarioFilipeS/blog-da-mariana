@@ -1,3 +1,5 @@
+import './comum.js';
+
 (async function () {
   const aviso = document.getElementById("status-artigo");
   const slug = new URLSearchParams(window.location.search).get("slug");
@@ -28,7 +30,6 @@
     document.title = post.title + " | Blog da Mariana";
     document.getElementById("artigo-titulo").textContent = post.title;
     document.getElementById("artigo-data").textContent = "Publicado em " + window.dataBrasileira(post.published_at);
-    window.mostrarParagrafos(document.getElementById("artigo-conteudo"), post.body);
     const conteudo = document.getElementById("artigo-conteudo");
 conteudo.replaceChildren();
 

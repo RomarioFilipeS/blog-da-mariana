@@ -1,3 +1,5 @@
+import './comum.js';
+
 (function () {
   const banco = window.getBlogClient();
   const aviso = document.getElementById("status-artigos");
@@ -37,7 +39,7 @@
 
     aviso.hidden = true;
     for (const post of data) {
-      const destino = "artigo.html?slug=" + encodeURIComponent(post.slug);
+      const destino = `${import.meta.env.BASE_URL}/artigo.html?slug=` + encodeURIComponent(post.slug);
       const card = document.createElement("article");
       card.className = "cartao-artigo";
 

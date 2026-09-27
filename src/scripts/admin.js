@@ -1,3 +1,5 @@
+import './comum.js';
+
 (function () {
   const banco = window.getBlogClient();
   const login = document.getElementById("secao-login");
@@ -23,7 +25,7 @@
   let slugFoiAlterado = false;
   
   if (!banco) {
-    avisoGeral.textContent = "Configure o Supabase em js/config.js antes de entrar. As instruções estão no guia incluído no projeto.";
+    avisoGeral.textContent = "Configure o Supabase em src/scripts/config.js antes de entrar. As instruções estão no guia incluído no projeto.";
     formLogin.querySelector("button").disabled = true;
     return;
   }

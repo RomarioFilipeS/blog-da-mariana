@@ -1,16 +1,18 @@
+import { createClient } from '@supabase/supabase-js';
+import './config.js';
+
 (function () {
   let client;
 
   window.getBlogClient = function () {
     const config = window.BLOG_CONFIG;
     if (!config || !config.url.startsWith("https://") ||
-        !config.publishableKey.startsWith("sb_publishable_") ||
-        !window.supabase || !window.supabase.createClient) {
+        !config.publishableKey.startsWith("sb_publishable_")) {
       return null;
     }
 
     if (!client) {
-      client = window.supabase.createClient(config.url, config.publishableKey);
+      client = createClient(config.url, config.publishableKey);
     }
     return client;
   };

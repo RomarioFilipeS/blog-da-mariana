@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Painel da autora | Blog da Mariana</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/amigos-vet.svg">
-</head>
-<body>
-  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
-  <header class="cabecalho">
-    <div class="container cabecalho-conteudo">
-      <a class="marca" href="index.html">🐾 Blog da Mariana</a>
-      <nav aria-label="Menu do painel"><a href="index.html">Ver blog</a></nav>
-    </div>
-  </header>
-
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout titulo="Painel da autora | Blog da Mariana" painel>
   <main id="conteudo" class="container pagina-admin">
     <h1>Painel da autora</h1>
     <p>Escreva um artigo, salve como rascunho ou publique para aparecer no blog.</p>
@@ -99,10 +84,8 @@
       </section>
     </div>
   </main>
+</Layout>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="js/config.js"></script>
-  <script defer src="js/comum.js"></script>
-  <script defer src="js/admin.js"></script>
-</body>
-</html>
+<script>
+  import "../scripts/admin.js";
+</script>

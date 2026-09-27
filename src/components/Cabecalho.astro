@@ -1,0 +1,16 @@
+---
+const { painel = false } = Astro.props;
+const inicio = `${import.meta.env.BASE_URL}/index.html`;
+---
+<header class="cabecalho">
+  <div class="container cabecalho-conteudo">
+    <a class="marca" href={inicio} aria-label="Blog da Mariana, página inicial">🐾 Blog da Mariana</a>
+    <nav aria-label={painel ? 'Menu do painel' : 'Menu principal'}>
+      {painel ? <a href={inicio}>Ver blog</a> : <>
+        <a href={inicio}>Início</a>
+        <a href={`${inicio}#sobre`}>Sobre mim</a>
+        <a href={`${inicio}#artigos`}>Artigos</a>
+      </>}
+    </nav>
+  </div>
+</header>

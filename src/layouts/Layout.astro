@@ -1,0 +1,26 @@
+---
+import Cabecalho from '../components/Cabecalho.astro';
+import Rodape from '../components/Rodape.astro';
+import '../styles/global.css';
+interface Props { titulo: string; descricao?: string; painel?: boolean; }
+const { titulo, descricao = 'Blog da Mariana sobre a vida na Medicina Veterinária na UnB e seu amor pelos animais.', painel = false } = Astro.props;
+const arara = `${import.meta.env.BASE_URL}/assets/arara_vetorizada.png`;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={descricao} />
+    {painel && <meta name="robots" content="noindex, nofollow" />}
+    <title>{titulo}</title>
+    <link rel="icon" type="image/png" href={arara} />
+  </head>
+  <body style={`--imagem-arara: url("${arara}")`}>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <Cabecalho painel={painel} />
+    <slot />
+    {!painel && <Rodape />}
+    <noscript><p class="container">Ative o JavaScript para carregar os artigos e usar o painel.</p></noscript>
+  </body>
+</html>
