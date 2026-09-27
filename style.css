@@ -166,7 +166,7 @@ nav a:hover,
   bottom: -2px;
   width: min(56%, 610px);
   height: 97%;
-  background: url("assets/amigos-vet.svg") center bottom / contain no-repeat;
+  background: url("assets/arara_vetorizada.svg") center bottom / contain no-repeat;
   content: "";
   filter: drop-shadow(0 18px 24px rgba(8, 35, 27, .21));
   pointer-events: none;
